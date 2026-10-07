@@ -1,0 +1,101 @@
+facility_id,location,cleanliness_score,odor_score,waste_level,water_availability,footfall,complaints,inspection_date,facility_status
+F001,Amravati,8.0,3.0,4.0,Yes,450.0,5.0,2026-01-05,Good
+F002,Akola,6.0,5.0,7.0,Yes,620.0,12.0,2026-01-10,Needs Improvement
+F003,Nagpur,9.0,2.0,3.0,Yes,800.0,4.0,2026-01-15,Good
+F004,Pune,5.0,7.0,9.0,No,900.0,20.0,2026-01-20,Needs Improvement
+F005,Mumbai,7.0,4.0,5.0,Yes,1200.0,15.0,2026-01-25,Good
+F006,Amravati,8.0,2.0,3.0,Yes,500.0,3.0,2026-02-01,Good
+F007,Akola,6.0,6.0,8.0,No,650.0,14.0,2026-02-05,Needs Improvement
+F008,Nagpur,9.0,2.0,2.0,Yes,850.0,5.0,2026-02-10,Good
+F009,Pune,4.0,8.0,10.0,No,950.0,25.0,2026-02-15,Needs Improvement
+F010,Mumbai,7.0,5.0,6.0,Yes,1300.0,18.0,2026-02-20,Good
+F011,Amravati,8.0,3.0,4.0,Yes,480.0,4.0,2026-03-01,Good
+F012,Akola,7.0,4.0,6.0,Yes,700.0,10.0,2026-03-05,Good
+F013,Nagpur,9.0,1.0,2.0,Yes,900.0,3.0,2026-03-10,Good
+F014,Pune,5.0,7.0,8.0,No,1000.0,22.0,2026-03-15,Needs Improvement
+F015,Mumbai,6.0,6.0,7.0,Yes,1400.0,20.0,2026-03-20,Needs Improvement
+F016,Amravati,8.0,3.0,3.0,Yes,520.0,5.0,2026-04-01,Good
+F017,Akola,6.0,5.0,7.0,Yes,680.0,11.0,2026-04-05,Needs Improvement
+F018,Nagpur,10.0,2.0,1.0,Yes,920.0,2.0,2026-04-10,Good
+F019,Pune,4.0,8.0,9.0,No,1100.0,28.0,2026-04-15,Needs Improvement
+F020,Mumbai,7.0,5.0,6.0,Yes,1500.0,19.0,2026-04-20,Good
+F021,Amravati,8.0,3.0,4.0,Yes,550.0,6.0,2026-05-01,Good
+F022,Akola,7.0,4.0,5.0,Yes,720.0,9.0,2026-05-05,Good
+F023,Nagpur,9.0,2.0,2.0,Yes,950.0,4.0,2026-05-10,Good
+F024,Pune,5.0,7.0,8.0,No,1150.0,24.0,2026-05-15,Needs Improvement
+F025,Mumbai,6.0,6.0,7.0,Yes,1600.0,21.0,2026-05-20,Needs Improvement
+F026,Amravati,8.0,3.0,3.0,Yes,580.0,5.0,2026-06-01,Good
+F027,Akola,6.0,5.0,6.0,Yes,750.0,12.0,2026-06-05,Needs Improvement
+F028,Nagpur,9.0,2.0,2.0,Yes,980.0,3.0,2026-06-10,Good
+F029,Pune,5.0,7.0,9.0,No,1200.0,26.0,2026-06-15,Needs Improvement
+F030,Mumbai,7.0,5.0,6.0,Yes,1700.0,23.0,2026-06-20,Good
+F031,Amravati,8.0,3.0,4.0,Yes,600.0,5.0,2026-07-01,Good
+F032,Akola,7.0,4.0,5.0,Yes,780.0,10.0,2026-07-05,Good
+F033,Nagpur,9.0,2.0,2.0,Yes,1000.0,4.0,2026-07-10,Good
+F034,Pune,4.0,8.0,10.0,No,1250.0,30.0,2026-07-15,Needs Improvement
+F035,Mumbai,6.0,6.0,7.0,Yes,1800.0,25.0,2026-07-20,Needs Improvement
+F036,Amravati,8.0,3.0,3.0,Yes,620.0,6.0,2026-08-01,Good
+F037,Akola,6.0,5.0,7.0,Yes,800.0,13.0,2026-08-05,Needs Improvement
+F038,Nagpur,9.0,2.0,1.0,Yes,1050.0,3.0,2026-08-10,Good
+F039,Pune,5.0,7.0,9.0,No,1300.0,27.0,2026-08-15,Needs Improvement
+F040,Mumbai,7.0,5.0,6.0,Yes,1900.0,24.0,2026-08-20,Good
+F041,Amravati,8.0,3.0,4.0,Yes,640.0,5.0,2026-09-01,Good
+F042,Akola,7.0,4.0,6.0,Yes,820.0,11.0,2026-09-05,Good
+F043,Nagpur,9.0,2.0,2.0,Yes,1100.0,4.0,2026-09-10,Good
+F044,Pune,5.0,7.0,8.0,No,1350.0,29.0,2026-09-15,Needs Improvement
+F045,Mumbai,6.0,6.0,7.0,Yes,2000.0,26.0,2026-09-20,Needs Improvement
+F046,Amravati,8.0,3.0,3.0,Yes,660.0,6.0,2026-10-01,Good
+F047,Akola,6.0,5.0,7.0,Yes,850.0,14.0,2026-10-05,Needs Improvement
+F048,Nagpur,9.0,2.0,2.0,Yes,1150.0,5.0,2026-10-06,Good
+F049,Pune,4.0,8.0,10.0,No,1400.0,31.0,2026-10-06,Needs Improvement
+F050,Mumbai,7.0,5.0,6.0,Yes,2100.0,27.0,2026-10-06,Good
+F051,Amravati,7.0,3.0,4.0,Yes,470.0,5.0,2026-01-08,Good
+F052,Akola,6.0,4.5,7.0,Yes,630.0,12.0,2026-01-12,Needs Improvement
+F053,Nagpur,9.0,2.0,6.0,Yes,810.0,4.0,2026-01-18,Good
+F054,Pune,5.0,7.0,9.0,Yes,920.0,20.0,2026-01-22,Needs Improvement
+F055,Mumbai,7.0,4.0,5.0,Yes,925.0,15.0,2026-01-28,Good
+F056,Amravati,8.0,3.0,4.0,Yes,510.0,12.0,2026-02-03,Good
+F057,Akola,6.0,5.0,7.0,Yes,670.0,13.0,2026-02-08,Needs Improvement
+F058,Nagpur,9.0,2.0,3.0,Yes,870.0,5.0,2026-02-13,Good
+F059,Pune,5.0,7.0,9.0,No,980.0,21.0,2026-02-18,Needs Improvement
+F060,Mumbai,7.0,5.0,6.0,Yes,1250.0,17.0,2026-02-23,Good
+F061,Amravati,8.0,3.0,4.0,Yes,490.0,4.0,2026-03-03,Good
+F062,Akola,6.0,5.0,7.0,Yes,690.0,12.0,2026-03-08,Needs Improvement
+F063,Nagpur,9.0,2.0,2.0,Yes,880.0,4.0,2026-03-13,Good
+F064,Pune,5.0,7.0,9.0,No,1020.0,23.0,2026-03-18,Needs Improvement
+F065,Mumbai,7.0,5.0,6.0,Yes,1350.0,18.0,2026-03-23,Good
+F066,Amravati,8.0,3.0,4.0,Yes,530.0,5.0,2026-04-03,Good
+F067,Akola,6.0,5.0,7.0,Yes,710.0,11.0,2026-04-08,Needs Improvement
+F068,Nagpur,9.0,2.0,2.0,Yes,930.0,3.0,2026-04-13,Good
+F069,Pune,5.0,7.0,9.0,No,1080.0,25.0,2026-04-18,Needs Improvement
+F070,Mumbai,7.0,5.0,6.0,Yes,1450.0,19.0,2026-04-23,Good
+F071,Amravati,8.0,3.0,4.0,Yes,570.0,5.0,2026-05-03,Good
+F072,Akola,7.0,4.0,6.0,Yes,740.0,10.0,2026-05-08,Good
+F073,Nagpur,9.0,2.0,2.0,Yes,970.0,4.0,2026-05-13,Good
+F074,Pune,5.0,7.0,8.0,No,1180.0,24.0,2026-05-18,Needs Improvement
+F075,Mumbai,6.0,6.0,7.0,Yes,1550.0,21.0,2026-05-23,Needs Improvement
+F076,Amravati,8.0,3.0,3.0,Yes,590.0,6.0,2026-06-03,Good
+F077,Akola,6.0,5.0,7.0,Yes,770.0,13.0,2026-06-08,Needs Improvement
+F078,Nagpur,9.0,2.0,2.0,Yes,1010.0,3.0,2026-06-13,Good
+F079,Pune,4.0,8.0,10.0,No,1220.0,27.0,2026-06-18,Needs Improvement
+F080,Mumbai,7.0,5.0,6.0,Yes,1650.0,22.0,2026-06-23,Good
+F081,Amravati,8.0,3.0,4.0,Yes,610.0,5.0,2026-07-03,Good
+F082,Akola,7.0,4.0,5.0,Yes,790.0,9.0,2026-07-08,Good
+F083,Nagpur,9.0,2.0,2.0,Yes,1030.0,4.0,2026-07-13,Good
+F084,Pune,5.0,7.0,9.0,No,1270.0,28.0,2026-07-18,Needs Improvement
+F085,Mumbai,6.0,6.0,7.0,Yes,1750.0,24.0,2026-07-23,Needs Improvement
+F086,Amravati,8.0,3.0,3.0,Yes,630.0,6.0,2026-08-03,Good
+F087,Akola,6.0,5.0,7.0,Yes,810.0,13.0,2026-08-08,Needs Improvement
+F088,Nagpur,9.0,2.0,2.0,Yes,1060.0,3.0,2026-08-13,Good
+F089,Pune,5.0,7.0,9.0,No,1320.0,26.0,2026-08-18,Needs Improvement
+F090,Mumbai,7.0,5.0,6.0,Yes,1850.0,23.0,2026-08-23,Good
+F091,Amravati,8.0,3.0,4.0,Yes,650.0,5.0,2026-09-03,Good
+F092,Akola,7.0,4.0,6.0,Yes,830.0,11.0,2026-09-08,Good
+F093,Nagpur,9.0,2.0,2.0,Yes,1080.0,4.0,2026-09-13,Good
+F094,Pune,5.0,7.0,8.0,No,1370.0,29.0,2026-09-18,Needs Improvement
+F095,Mumbai,6.0,6.0,7.0,Yes,1950.0,25.0,2026-09-23,Needs Improvement
+F096,Amravati,8.0,3.0,3.0,Yes,670.0,6.0,2026-10-02,Good
+F097,Akola,6.0,5.0,7.0,Yes,860.0,14.0,2026-10-04,Needs Improvement
+F098,Nagpur,9.0,2.0,2.0,Yes,1180.0,5.0,2026-10-05,Good
+F099,Pune,7.0,7.0,9.0,No,1400.0,32.0,2026-10-06,Good
+F100,Mumbai,7.0,4.5,6.0,Yes,925.0,28.0,2026-10-06,Good

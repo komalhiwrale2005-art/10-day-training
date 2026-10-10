@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Employee Dashboard</h1>
+        <p>Manage employee information in one place</p>
+    </header>
+
+    <main class="container">
+        <section class="summary">
+            <div class="summary-card">
+                <h3>Total Employees</h3>
+                <p id="totalEmployees">0</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>IT Department</h3>
+                <p id="itEmployees">0</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Average Salary</h3>
+                <p id="averageSalary">₹0</p>
+            </div>
+        </section>
+
+        <section class="toolbar">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search employees..."
+            >
+
+            <select id="departmentFilter">
+                <option value="all">All Departments</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+
+            <select id="sortSelect">
+                <option value="name">Sort by Name</option>
+                <option value="salaryAsc">Salary: Low to High</option>
+                <option value="salaryDesc">Salary: High to Low</option>
+            </select>
+
+            <button id="addEmployeeBtn">+ Add Employee</button>
+        </section>
+
+        <section class="table-section">
+            <h2>Employee Records</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Salary</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeTableBody">
+                        <!-- Employee rows will be added by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage" hidden>No employees found.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

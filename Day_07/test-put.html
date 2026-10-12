@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Update Employee API</title>
+</head>
+<body>
+  <h2>Update Employee</h2>
+
+  <button onclick="updateEmployee()">Update Amit's Record</button>
+
+  <pre id="result"></pre>
+
+  <script>
+    async function updateEmployee() {
+      try {
+        const response = await fetch(
+          "http://localhost:5000/api/employees/1",
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              name: "Amit Sharma Updated",
+              email: "amit.updated@example.com",
+              department: "IT",
+              salary: 35000
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        document.getElementById("result").textContent =
+          JSON.stringify(data, null, 2);
+      } catch (error) {
+        document.getElementById("result").textContent =
+          "Error: " + error.message;
+      }
+    }
+  </script>
+</body>
+</html>

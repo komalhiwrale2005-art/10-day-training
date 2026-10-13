@@ -1,4 +1,4 @@
-# Day 8: Facility Management REST API
+#  Day 8: Database + Laravel
 
 ## Project Overview
 This project is a Facility Management REST API developed using Laravel and MySQL. It manages facilities, their inspection records, and complaints through RESTful API endpoints.

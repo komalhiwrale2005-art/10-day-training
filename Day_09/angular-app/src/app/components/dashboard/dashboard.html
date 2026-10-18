@@ -1,0 +1,224 @@
+
+<div class="dashboard">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">FACILITY MANAGEMENT</p>
+      <h1>Facility Inspection Dashboard</h1>
+      <p class="subtitle">
+        Monitor facilities and track inspection activities.
+      </p>
+    </div>
+
+    <button
+      class="primary-button"
+      type="button"
+      (click)="showInspectionForm = !showInspectionForm">
+      + New Inspection
+    </button>
+  </header>
+
+  <!-- Loading message -->
+  <p *ngIf="loading" class="info-message">
+    Loading facilities from Laravel API...
+  </p>
+
+  <!-- Error and success messages -->
+  <p *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+    <button type="button" (click)="loadFacilities()">Retry</button>
+  </p>
+
+  <p *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </p>
+
+  <!-- Dashboard metrics -->
+  <section class="metrics">
+    <div class="metric-card">
+      <p>Total Facilities</p>
+      <h2>{{ totalFacilities }}</h2>
+      <span>Registered facilities</span>
+    </div>
+
+    <div class="metric-card">
+      <p>Pending Inspections</p>
+      <h2>{{ pendingInspections }}</h2>
+      <span>Awaiting inspection</span>
+    </div>
+
+    <div class="metric-card">
+      <p>Completed Inspections</p>
+      <h2>{{ completedInspections }}</h2>
+      <span>Based on saved inspections</span>
+    </div>
+
+    <div class="metric-card">
+      <p>Average Cleanliness</p>
+      <h2>{{ averageCleanliness }}%</h2>
+      <span>Based on recorded scores</span>
+    </div>
+  </section>
+
+  <!-- New inspection form -->
+  <section class="panel" *ngIf="showInspectionForm">
+    <h2>New Inspection</h2>
+
+    <form (ngSubmit)="submitInspection()">
+      <label for="facility">Facility</label>
+      <select
+        id="facility"
+        [(ngModel)]="inspectionFacility"
+        name="facility"
+        required>
+        <option value="">Select facility</option>
+        <option
+          *ngFor="let facility of facilities"
+          [value]="facility.id">
+          {{ facility.name }} — {{ facility.location }}
+        </option>
+      </select>
+
+      <label for="date">Inspection Date</label>
+      <input
+        id="date"
+        type="date"
+        [(ngModel)]="inspectionDate"
+        name="date"
+        required />
+
+      <label for="inspectorName">Inspector Name</label>
+      <input
+        id="inspectorName"
+        type="text"
+        [(ngModel)]="inspectorName"
+        name="inspectorName"
+        placeholder="Enter inspector name"
+        required />
+
+      <label for="cleanlinessScore">Cleanliness Score (0–100)</label>
+      <input
+        id="cleanlinessScore"
+        type="number"
+        [(ngModel)]="cleanlinessScore"
+        name="cleanlinessScore"
+        min="0"
+        max="100"
+        required />
+
+      <label for="notes">Inspection Notes</label>
+      <textarea
+        id="notes"
+        [(ngModel)]="inspectionNotes"
+        name="notes"
+        placeholder="Enter inspection observations">
+      </textarea>
+
+      <button
+        class="primary-button"
+        type="submit"
+        [disabled]="savingInspection || loading || facilities.length === 0">
+        {{ savingInspection ? 'Saving...' : 'Save Inspection' }}
+      </button>
+    </form>
+  </section>
+
+  <!-- Facilities table -->
+  <section class="panel">
+    <div class="section-heading">
+      <div>
+        <h2>Facilities</h2>
+        <p>Search and review facilities from the database.</p>
+      </div>
+
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search facilities..."
+        aria-label="Search facilities"
+        [(ngModel)]="searchText" />
+    </div>
+
+    <div class="filters">
+      <select
+        [(ngModel)]="selectedStatus"
+        aria-label="Filter by inspection status">
+        <option value="All">All Inspection Statuses</option>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <select
+        [(ngModel)]="sortOrder"
+        aria-label="Sort facilities">
+        <option value="asc">Name: A to Z</option>
+        <option value="desc">Name: Z to A</option>
+      </select>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Facility</th>
+            <th>Facility Type</th>
+            <th>Location</th>
+            <th>Inspection Status</th>
+            <th>Active Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let facility of filteredFacilities">
+            <td>
+              <strong>{{ facility.name }}</strong>
+              <small>ID: {{ facility.id }}</small>
+            </td>
+
+            <td>{{ facility.facility_type }}</td>
+            <td>{{ facility.location }}</td>
+
+            <td>
+              <span
+                class="status"
+                [class.completed]="facility.status === 'Completed'">
+                {{ facility.status }}
+              </span>
+            </td>
+
+            <td>
+              {{ facility.is_active === 1 ? 'Active' : 'Inactive' }}
+            </td>
+          </tr>
+
+          <tr *ngIf="!loading && filteredFacilities.length === 0">
+            <td colspan="5" class="empty-state">
+              No facilities found.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Inspection history -->
+  <section class="panel">
+    <h2>Recent Inspection History</h2>
+
+    <div
+      *ngIf="inspectionHistory.length === 0"
+      class="empty-state">
+      No inspections recorded yet.
+    </div>
+
+    <div
+      class="history-item"
+      *ngFor="let inspection of inspectionHistory">
+      <div>
+        <strong>{{ inspection.facility }}</strong>
+        <p>{{ inspection.date }}</p>
+        <p>{{ inspection.notes || 'No notes added.' }}</p>
+        <small>Cleanliness Score: {{ inspection.cleanliness }}%</small>
+      </div>
+    </div>
+  </section>
+</div>

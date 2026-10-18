@@ -1,0 +1,24 @@
+### 1. Get All Facilities
+GET http://127.0.0.1:8000/api/facilities
+Accept: application/json
+
+###
+
+### 2. Get All Inspections
+GET http://127.0.0.1:8000/api/inspections
+Accept: application/json
+
+###
+
+### 3. Create a New Inspection
+POST http://127.0.0.1:8000/api/inspections
+Content-Type: application/json
+Accept: application/json
+
+{
+  "facility_id": 1,
+  "inspection_date": "2026-10-18",
+  "inspector_name": "Test Inspector",
+  "cleanliness_score": 85,
+  "remarks": "API integration test"
+}

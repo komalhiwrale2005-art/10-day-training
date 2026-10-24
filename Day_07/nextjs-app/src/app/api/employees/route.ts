@@ -1,13 +1,13 @@
 
 import { NextResponse } from "next/server";
 
-const API_URL = "https://day-7-node-api.onrender.com/api/employees";
+const API_URL =
+  "https://day-7-node-api.onrender.com/api/employees";
+
+const API_KEY = process.env.API_KEY || "";
 
 const API_HEADERS = {
-  "x-api-key":
-    process.env.API_KEY ||
-    process.env.NEXT_PUBLIC_API_KEY ||
-    "",
+  "x-api-key": API_KEY,
 };
 
 export async function GET() {

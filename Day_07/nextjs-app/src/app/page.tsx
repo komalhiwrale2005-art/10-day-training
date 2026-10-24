@@ -18,11 +18,7 @@ type EmployeeApiResponse = {
   message?: string;
 };
 
-const API_URL = "https://day-7-node-api.onrender.com/api/employees";
-
-const API_HEADERS = {
-  "x-api-key": process.env.NEXT_PUBLIC_API_KEY || "",
-};
+const API_URL = "/api/employees";
 
 export default function Home() {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -39,7 +35,8 @@ export default function Home() {
 
     try {
       const response = await fetch(API_URL, {
-        headers: API_HEADERS,
+        method: "GET",
+        cache: "no-store",
       });
 
       const result: EmployeeApiResponse = await response.json();
@@ -49,13 +46,17 @@ export default function Home() {
         !result.success ||
         !Array.isArray(result.data)
       ) {
-        throw new Error(result.message || "Failed to load employees.");
+        throw new Error(
+          result.message || "Failed to load employees."
+        );
       }
 
       setEmployees(result.data);
-    } catch {
+    } catch (err) {
       setError(
-        "Could not load employees. Check your backend server and API key."
+        err instanceof Error
+          ? err.message
+          : "Could not load employees. Check your backend configuration."
       );
     } finally {
       setLoading(false);
@@ -75,7 +76,8 @@ export default function Home() {
     )
     .filter(
       (employee) =>
-        department === "All" || employee.department === department
+        department === "All" ||
+        employee.department === department
     )
     .sort((a, b) => {
       if (sort === "salary-asc") return a.salary - b.salary;
@@ -89,7 +91,10 @@ export default function Home() {
     if (!name?.trim()) return;
 
     const email = prompt("Enter employee email:");
-    if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (
+      !email?.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
       alert("Please enter a valid email.");
       return;
     }
@@ -99,9 +104,16 @@ export default function Home() {
     );
     if (!departmentInput) return;
 
-    const validDepartments = ["IT", "HR", "Finance", "Marketing"];
+    const validDepartments = [
+      "IT",
+      "HR",
+      "Finance",
+      "Marketing",
+    ];
+
     const selectedDepartment = validDepartments.find(
-      (item) => item.toLowerCase() === departmentInput.trim().toLowerCase()
+      (item) =>
+        item.toLowerCase() === departmentInput.trim().toLowerCase()
     );
 
     if (!selectedDepartment) {
@@ -123,7 +135,6 @@ export default function Home() {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
-          ...API_HEADERS,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -157,7 +168,10 @@ export default function Home() {
     if (!name?.trim()) return;
 
     const email = prompt("Enter employee email:", employee.email);
-    if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (
+      !email?.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
       alert("Please enter a valid email.");
       return;
     }
@@ -168,9 +182,16 @@ export default function Home() {
     );
     if (!departmentInput?.trim()) return;
 
-    const validDepartments = ["IT", "HR", "Finance", "Marketing"];
+    const validDepartments = [
+      "IT",
+      "HR",
+      "Finance",
+      "Marketing",
+    ];
+
     const selectedDepartment = validDepartments.find(
-      (item) => item.toLowerCase() === departmentInput.trim().toLowerCase()
+      (item) =>
+        item.toLowerCase() === departmentInput.trim().toLowerCase()
     );
 
     if (!selectedDepartment) {
@@ -178,7 +199,10 @@ export default function Home() {
       return;
     }
 
-    const salaryInput = prompt("Enter salary:", String(employee.salary));
+    const salaryInput = prompt(
+      "Enter salary:",
+      String(employee.salary)
+    );
     if (salaryInput === null || salaryInput.trim() === "") return;
 
     const salary = Number(salaryInput);
@@ -194,7 +218,6 @@ export default function Home() {
         {
           method: "PUT",
           headers: {
-            ...API_HEADERS,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
@@ -225,14 +248,15 @@ export default function Home() {
 
   // DELETE: Delete employee
   const deleteEmployee = async (id: number | string) => {
-    if (!confirm("Are you sure you want to delete this employee?")) return;
+    if (!confirm("Are you sure you want to delete this employee?")) {
+      return;
+    }
 
     try {
       const response = await fetch(
         `${API_URL}/${encodeURIComponent(String(id))}`,
         {
           method: "DELETE",
-          headers: API_HEADERS,
         }
       );
 
@@ -265,7 +289,9 @@ export default function Home() {
         <div>
           <p className="eyebrow">EMPLOYEE MANAGEMENT</p>
           <h1>Employee Dashboard</h1>
-          <p className="subtitle">Manage your team in one place.</p>
+          <p className="subtitle">
+            Manage your team in one place.
+          </p>
         </div>
 
         <button
@@ -286,13 +312,17 @@ export default function Home() {
         <article className="stat-card">
           <p>IT Department</p>
           <h2>
-            {employees.filter((employee) => employee.department === "IT").length}
+            {employees.filter(
+              (employee) => employee.department === "IT"
+            ).length}
           </h2>
         </article>
 
         <article className="stat-card">
           <p>Average Salary</p>
-          <h2>₹{Math.round(averageSalary).toLocaleString("en-IN")}</h2>
+          <h2>
+            ₹{Math.round(averageSalary).toLocaleString("en-IN")}
+          </h2>
         </article>
       </section>
 
@@ -344,7 +374,10 @@ export default function Home() {
         ) : error ? (
           <div className="message error">
             <p>{error}</p>
-            <button className="primary-button" onClick={loadEmployees}>
+            <button
+              className="primary-button"
+              onClick={loadEmployees}
+            >
               Try Again
             </button>
           </div>
@@ -371,15 +404,24 @@ export default function Home() {
                       <Link href={`/employees/${employee.id}`}>
                         #{employee.id}
                       </Link>
-                     </td>
-                    <td className="employee-name">{employee.name}</td>
+                    </td>
+
+                    <td className="employee-name">
+                      {employee.name}
+                    </td>
+
                     <td>{employee.email}</td>
+
                     <td>
                       <span className="department">
                         {employee.department}
                       </span>
                     </td>
-                    <td>₹{employee.salary.toLocaleString("en-IN")}</td>
+
+                    <td>
+                      ₹{employee.salary.toLocaleString("en-IN")}
+                    </td>
+
                     <td>
                       <div className="action-buttons">
                         <button

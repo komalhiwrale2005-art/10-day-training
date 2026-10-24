@@ -74,7 +74,7 @@ A Node.js and Express.js REST API was created to manage employee records.
 
 ### API Endpoints
 
-Base URL: `http://localhost:5000/api/employees`
+Base URL: `https://day-7-node-api.onrender.com/api/employees`
 
 | HTTP Method | Endpoint | Operation |
 |---|---|---|

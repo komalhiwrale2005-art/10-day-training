@@ -18,7 +18,7 @@ type EmployeeApiResponse = {
   message?: string;
 };
 
-const API_URL = "http://localhost:5000/api/employees";
+const API_URL = "https://day-7-node-api.onrender.com/api/employees";
 
 const API_HEADERS = {
   "x-api-key": process.env.NEXT_PUBLIC_API_KEY || "",

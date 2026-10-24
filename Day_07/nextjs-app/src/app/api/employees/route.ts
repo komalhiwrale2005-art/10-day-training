@@ -1,7 +1,7 @@
 
 import { NextResponse } from "next/server";
 
-const API_URL = "http://localhost:5000/api/employees";
+const API_URL = "https://day-7-node-api.onrender.com/api/employees";
 
 const API_HEADERS = {
   "x-api-key":

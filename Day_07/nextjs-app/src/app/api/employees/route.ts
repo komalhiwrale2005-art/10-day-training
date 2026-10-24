@@ -5,6 +5,7 @@ const API_URL =
   "https://day-7-node-api.onrender.com/api/employees";
 
 const API_KEY = process.env.API_KEY || "";
+console.log("API_KEY loaded:", Boolean(API_KEY));
 
 const API_HEADERS = {
   "x-api-key": API_KEY,

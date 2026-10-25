@@ -2,6 +2,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::get('/health-check', function () {
+    return response()->json(['status' => 'Laravel API working']);
+});
 use App\Http\Controllers\Api\FacilityController;
 use App\Http\Controllers\Api\InspectionController;
 use App\Http\Controllers\Api\ComplaintController;
